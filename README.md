@@ -1,6 +1,6 @@
 # Image compressor processor for Sprockets
 
-Sprockets preprocessor to losslessly compress images. Requires [pngcrush](http://pmt.sourceforge.net/pngcrush/) to be installed and in your PATH.
+Sprockets preprocessor to losslessly compress .png and .jpg images. Requires [pngcrush](http://pmt.sourceforge.net/pngcrush/) and [jpegoptim](http://www.kokkonen.net/tjko/projects.html) to be installed and in your PATH.
 
 ## Integration with Rails 3.1+
 
@@ -10,16 +10,14 @@ Just add this gem to your Gemfile:
 gem 'sprockets-image_compressor'
 ````
 
-The gem ships with a Railtie which will automatically register the compressor preprocessor.
+The gem ships with a Railtie which will automatically register the compressor preprocessors.
 
-## Caveats
+## TODO
 
-For the first release, it only compresses pngs with [pngcrush](http://pmt.sourceforge.net/pngcrush/). But don't worry, support for compressing jpegs via jpegoptim will be added shortly!
+* Detect missing pngcrush or jpegoptim installations
+* Provide configuration hooks
+* Tests
 
-It doesn't even bother to make sure you have pngcrush installed.
-
-Also, no tests.
-
-### License
+## License
 
 (MIT License) - Copyright (c) 2011 Micah Geisel
