@@ -7,7 +7,7 @@ module Sprockets
           out_file_path = in_file.path + ".optimized.png"
           in_file.write content
           in_file.close
-          out = `pngcrush #{in_file.path} #{out_file_path}`
+          out = `pngcrush #{in_file.path} #{out_file_path} 2>&1`
           in_file.delete
 
           compressed_png_data = File.read out_file_path
