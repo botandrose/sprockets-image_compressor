@@ -4,6 +4,7 @@ module Sprockets
       def compress(content)
         compressed_jpg_data = ""
         Tempfile.open ["file", ".jpg"] do |file|
+          file.binmode
           file.write content
           file.close
 
