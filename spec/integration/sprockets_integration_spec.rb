@@ -6,14 +6,9 @@ describe "sprockets integration" do
   include Rack::Test::Methods
 
   let(:app) do
-    Sprockets::Environment.new.tap do |environment|
-      environment.register_postprocessor 'image/png', :png_compressor do |context, data|
-        Sprockets::ImageCompressor::PngCompressor.new.compress data
-      end
-      environment.register_postprocessor 'image/jpeg', :jpg_compressor do |context, data|
-        Sprockets::ImageCompressor::JpgCompressor.new.compress data
-      end
-      environment.append_path "spec/fixtures"
+    Sprockets::Environment.new.tap do |env|
+      Sprockets::ImageCompressor::Integration.setup env
+      env.append_path "spec/fixtures"
     end
   end
 
