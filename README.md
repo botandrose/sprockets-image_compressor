@@ -16,7 +16,7 @@ The gem ships with a Railtie which will automatically register the compressor pr
 
 * Detect missing pngcrush or jpegoptim installations
 * Provide configuration hooks
-* Tests
+* Test Railtie
 
 ## License
 
