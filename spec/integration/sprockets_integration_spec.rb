@@ -13,14 +13,16 @@ describe "sprockets integration" do
   end
 
   it "should compress pngs" do
-    get "/largepng.png"
-    last_response.should be_ok
-    last_response.headers["Content-Length"].should == "116773"
+    big_response = get "/largepng.png"
+    small_response = get "/smallpng.png"
+    big_response.headers["Content-Length"].should == small_response.headers["Content-Length"]
+    big_response.body.should == small_response.body
   end
 
   it "should compress jpgs" do
-    get "/largejpg.jpg"
-    last_response.should be_ok
-    last_response.headers["Content-Length"].should == "4000"
+    big_response = get "/largejpg.jpg"
+    small_response = get "/smalljpg.jpg"
+    big_response.headers["Content-Length"].should == small_response.headers["Content-Length"]
+    big_response.body.should == small_response.body
   end
 end
