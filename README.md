@@ -6,6 +6,8 @@ Sprockets preprocessor to losslessly compress .png and .jpg images. Requires [pn
 
 Works great with Ruby 1.8! Not so much with 1.9, due to encoding issues with binary assets within sprockets itself. This should be fixed in the upcoming 2.2.0 release of sprockets: https://github.com/sstephenson/sprockets/issues/269
 
+In the meantime, my fork of sprockets that fixes this issue: https://github.com/botandrose/sprockets/tree/automatic_binary_encoding
+
 ## Integration with Rails 3.1+
 
 Just add this gem to your Gemfile:
