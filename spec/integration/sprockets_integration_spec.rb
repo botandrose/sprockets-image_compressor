@@ -25,4 +25,9 @@ describe "sprockets integration" do
     big_response.headers["Content-Length"].should == small_response.headers["Content-Length"]
     big_response.body.should == small_response.body
   end
+
+  it "should still serve text assets" do
+    response = get "/test.css"
+    response.status.should == 200
+  end
 end
