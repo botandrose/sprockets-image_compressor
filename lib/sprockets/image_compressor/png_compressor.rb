@@ -1,6 +1,12 @@
+require "sprockets/image_compressor/base"
+
 module Sprockets
   module ImageCompressor
-    class PngCompressor
+    class PngCompressor < Base
+      def initialize
+        @name = "pngcrush"
+      end
+
       def compress(content)
         compressed_png_data = ""
         Tempfile.open ["in_file", ".png"] do |in_file|
@@ -8,7 +14,7 @@ module Sprockets
           out_file_path = in_file.path + ".optimized.png"
           in_file.write content
           in_file.close
-          out = `pngcrush #{in_file.path} #{out_file_path} 2>&1`
+          out = `#{binary_path} #{in_file.path} #{out_file_path} 2>&1`
           in_file.delete
 
           File.open out_file_path, "rb" do |out_file|

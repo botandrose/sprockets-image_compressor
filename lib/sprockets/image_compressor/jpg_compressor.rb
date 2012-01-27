@@ -1,6 +1,12 @@
+require "sprockets/image_compressor/base"
+
 module Sprockets
   module ImageCompressor
-    class JpgCompressor
+    class JpgCompressor < Base
+      def initialize
+        @name = "jpegoptim"
+      end
+
       def compress(content)
         compressed_jpg_data = ""
         Tempfile.open ["file", ".jpg"] do |file|
@@ -8,7 +14,7 @@ module Sprockets
           file.write content
           file.close
 
-          out = `jpegoptim --strip-all #{file.path} 2>&1`
+          out = `#{binary_path} --strip-all #{file.path} 2>&1`
           file.open
           compressed_jpg_data = file.read
         end
