@@ -1,3 +1,8 @@
+0.2.0 (01/28/2012)
+-------------------------
+
+* Feature: Fallback to vendored binaries if pngcrush and/or jpegoptim aren't installed on the system. Works on Heroku, now!
+
 0.1.2 (01/26/2012)
 -------------------------
 
