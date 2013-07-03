@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = %q{Losslessly compress images in the Rails asset pipeline}
   s.description = %q{Losslessly compress images in the Rails asset pipeline}
+  s.license     = "MIT"
 
   s.rubyforge_project = "sprockets-image_compressor"
 
