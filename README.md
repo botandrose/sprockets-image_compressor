@@ -25,6 +25,7 @@ If the environment doesn't have pngcrush and/or jpegoptim installed, the gem wil
 
 * @nhogle for help with compiling and packaging the jpegoptim and pngcrush binaries
 * @florentmorin for compatibility with sprockets-rails
+* @dkubb for compatibility with Rails 4
 
 ## License
 
