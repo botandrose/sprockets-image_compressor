@@ -1,3 +1,14 @@
+0.2.2 (09/20/2013)
+-------------------------
+
+* Bugfix: Work on Rails 4. Thanks, @dkubb!
+
+0.2.1 (07/20/2012)
+-------------------------
+
+* Bugfix: Work with Sprockets::Rails. Thanks, @florentmorin!
+* Bugfix: Include license in gemspec. Thanks, @sunny!
+
 0.2.0 (01/28/2012)
 -------------------------
 
