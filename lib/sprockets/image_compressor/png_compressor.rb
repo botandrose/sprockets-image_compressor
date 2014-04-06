@@ -8,19 +8,23 @@ module Sprockets
       end
 
       def compress(content)
-        compressed_png_data = ""
+        compressed_png_data = content
         Tempfile.open ["in_file", ".png"] do |in_file|
           in_file.binmode
           out_file_path = in_file.path + ".optimized.png"
           in_file.write content
           in_file.close
-          out = `#{binary_path} #{in_file.path} #{out_file_path} 2>&1`
-          in_file.delete
 
-          File.open out_file_path, "rb" do |out_file|
-            compressed_png_data = out_file.read
+          begin
+            out = `#{binary_path} #{in_file.path} #{out_file_path} 2>&1`
+
+            File.open out_file_path, "rb" do |out_file|
+              compressed_png_data = out_file.read
+            end
+            File.unlink out_file_path
+          rescue Errno::ENOENT => e
+            # error during compression so out_file not found ...
           end
-          File.unlink out_file_path
         end
         compressed_png_data
       end
