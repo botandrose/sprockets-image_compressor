@@ -39,7 +39,8 @@ describe Sprockets::ImageCompressor::PngCompressor do
   end
 
   describe "#compress" do
-    it "returns uncompressable content as-is" do
+    it "returns uncompressable content as-is with a warning" do
+      compressor.should_receive(:warn)
       compressor.compress("asdf").should == "asdf"
     end
   end

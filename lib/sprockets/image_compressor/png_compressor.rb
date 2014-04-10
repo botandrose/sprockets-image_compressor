@@ -27,6 +27,7 @@ module Sprockets
       rescue Errno::ENOENT => e
         # error during compression so out_file not found
         # return original content as a fallback
+        warn "sprockets-image_compressor: PNG compression failed... returning original."
         content
       end
     end
