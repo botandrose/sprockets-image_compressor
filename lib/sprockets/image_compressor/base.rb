@@ -1,3 +1,5 @@
+require "tempfile"
+
 module Sprockets
   module ImageCompressor
     GEM_ROOT = File.expand_path File.join(File.dirname(__FILE__), "../../../")

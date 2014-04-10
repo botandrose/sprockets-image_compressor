@@ -37,4 +37,10 @@ describe Sprockets::ImageCompressor::PngCompressor do
       end
     end
   end
+
+  describe "#compress" do
+    it "returns uncompressable content as-is" do
+      compressor.compress("asdf").should == "asdf"
+    end
+  end
 end
