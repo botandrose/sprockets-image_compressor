@@ -1,3 +1,7 @@
+0.2.3 (04/10/2014)
+-------------------------
+* Bugfix: Return original file and warn if compression fails. Thanks, @tomchentw!
+
 0.2.2 (09/20/2013)
 -------------------------
 
