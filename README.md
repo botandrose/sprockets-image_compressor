@@ -16,6 +16,17 @@ The gem ships with a Railtie which will automatically register the compressor pr
 
 If the environment doesn't have pngcrush and/or jpegoptim installed, the gem will fall back on binaries packaged with the gem. Currently, only 32bit and 64bit linux binaries are included. Pull requests welcome for other architectures!
 
+## Gotchas
+
+If you have other sprockets processors registered for images, e.g. `sprockets-webp`, the relative order that they are required can matter. Please load `sprockets-image_compressor` _before_ the others:
+
+```ruby
+gem 'sprockets-image_compressor'
+gem 'sprockets-webp'
+```
+
+See [#15](https://github.com/botandrose/sprockets-image_compressor/issues/15) for more information.
+
 ## TODO
 
 * Provide configuration hooks
