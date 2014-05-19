@@ -1,3 +1,7 @@
+0.2.4 (05/18/2014)
+-------------------------
+* Bugfix: jpgs weren't being opened in binary mode. Thanks, @JakeTheSnake3p0!
+
 0.2.3 (04/10/2014)
 -------------------------
 * Bugfix: Return original file and warn if compression fails. Thanks, @tomchentw!
