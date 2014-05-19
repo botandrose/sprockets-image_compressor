@@ -1,5 +1,7 @@
 # Image compressor processor for Sprockets
 
+[![Build Status](https://travis-ci.org/botandrose/sprockets-image_compressor.svg?branch=master)](https://travis-ci.org/botandrose/sprockets-image_compressor)
+
 Sprockets preprocessor to losslessly compress .png and .jpg images using [pngcrush](http://pmt.sourceforge.net/pngcrush/) and [jpegoptim](http://www.kokkonen.net/tjko/projects.html).
 
 ## Integration with Rails 3.1+
