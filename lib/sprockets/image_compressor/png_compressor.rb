@@ -16,10 +16,7 @@ module Sprockets
           in_file.close
 
           out = `#{binary_path} #{in_file.path} #{out_file_path} 2>&1`
-
-          File.open out_file_path, "rb" do |out_file|
-            compressed_png_data = out_file.read
-          end
+          compressed_png_data = IO.binread(out_file_path)
           File.unlink out_file_path
         end
         compressed_png_data
