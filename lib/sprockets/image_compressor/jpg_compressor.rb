@@ -15,8 +15,7 @@ module Sprockets
           file.close
 
           out = `#{binary_path} --strip-all #{file.path} 2>&1`
-          file.open
-          compressed_jpg_data = file.read
+          compressed_jpg_data = IO.binread(file.path)
         end
         compressed_jpg_data
       end
