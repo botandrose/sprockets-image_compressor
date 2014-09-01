@@ -18,7 +18,14 @@ module Sprockets
 
       def try_system_binary
         system_binary = `which #{@name}`.chomp
-        system_binary if system_binary.length > 0
+        if system_binary.length > 0
+          raise """
+            Your system says the executable '#{@name}' resides in '#{system_binary}', but the file is inaccessible!
+            """ unless File.exists?(system_binary)
+          system_binary
+        else
+          false
+        end
       end
 
       def try_vendored_binaries
