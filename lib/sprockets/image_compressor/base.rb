@@ -17,8 +17,21 @@ module Sprockets
       private
 
       def try_system_binary
-        system_binary = `which #{@name}`.chomp
-        system_binary if system_binary.length > 0
+        system_binary = nil
+        [:which, :where].each do |find|
+          # which/where may return two or more results separated by a newline. Use the first
+          system_binary = `#{find} #{@name}`.chomp.split(/[\r\n]/).compact.first
+          # If results are obtained, convert the string into proper notation
+          # (i.e., C:\something into C:/something)...but do not set the result
+          # if the file is inaccessible
+          if system_binary.length > 0
+            system_binary = File.join(system_binary.split(/[\\\/]/))
+            # Break if the file is inaccessible
+            break if File.exists?(system_binary)
+            system_binary = nil
+          end
+        end
+        system_binary
       end
 
       def try_vendored_binaries
