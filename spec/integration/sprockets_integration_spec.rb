@@ -15,19 +15,19 @@ describe "sprockets integration" do
   it "should compress pngs" do
     big_response = get "/largepng.png"
     small_response = get "/smallpng.png"
-    big_response.headers["Content-Length"].should == small_response.headers["Content-Length"]
-    big_response.body.should == small_response.body
+    expect(big_response.headers["Content-Length"]).to eq(small_response.headers["Content-Length"])
+    expect(big_response.body).to eq(small_response.body)
   end
 
   it "should compress jpgs" do
     big_response = get "/largejpg.jpg"
     small_response = get "/smalljpg.jpg"
-    big_response.headers["Content-Length"].should == small_response.headers["Content-Length"]
-    big_response.body.should == small_response.body
+    expect(big_response.headers["Content-Length"]).to eq(small_response.headers["Content-Length"])
+    expect(big_response.body).to eq(small_response.body)
   end
 
   it "should still serve text assets" do
     response = get "/test.css"
-    response.status.should == 200
+    expect(response.status).to eq(200)
   end
 end

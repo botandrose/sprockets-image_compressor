@@ -13,7 +13,7 @@ module Sprockets
           file.binmode
           file.write content
           file.close
-
+          
           out = `#{binary_path} --strip-all #{file.path} 2>&1`
           compressed_jpg_data = IO.binread(file.path)
         end
