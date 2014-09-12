@@ -56,7 +56,7 @@ module Sprockets
           # If we have a path and the binary is accessible, return it.
           # Otherwise, raise an error because we have an inaccessible file!
           system_binary = File.join(system_binary.split(/[\\\/]/))
-          raise "sprockets-image_compressor found #{ system_binary } but could not access it!" unless File.exists?(system_binary)
+          system_binary = nil unless File.exists?(system_binary)
         end
         system_binary
       end
