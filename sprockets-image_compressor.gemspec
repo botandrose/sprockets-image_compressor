@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "sprockets"
 
+  s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rack-test"
   s.add_development_dependency "byebug"
