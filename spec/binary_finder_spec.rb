@@ -7,10 +7,6 @@ describe Sprockets::ImageCompressor::BinaryFinder do
 
   describe "#binary_path" do
 
-    # before(:each) do
-    #   finder.send "@binary_path=nil"
-    # end
-
     context "when binary is installed" do
 
       it "prefers the system's binary" do
