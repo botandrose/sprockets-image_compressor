@@ -7,7 +7,7 @@ module Sprockets
 
     class Base
       def binary_path
-        @binary_path ||= BinaryFinder.new(@name).to_s
+        @binary_path ||= BinaryFinder.new(@name).path
       end
     end
 

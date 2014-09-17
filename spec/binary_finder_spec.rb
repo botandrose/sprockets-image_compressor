@@ -7,13 +7,17 @@ describe Sprockets::ImageCompressor::BinaryFinder do
 
   describe "#binary_path" do
 
+    # before(:each) do
+    #   finder.send "@binary_path=nil"
+    # end
+
     context "when binary is installed" do
 
       it "prefers the system's binary" do
         # Assume that the program has found a local file
         allow(finder).to receive(:try_system_binary).and_return("/path/to/binary")
         # It should return that path
-        expect(finder.to_s).to eq("/path/to/binary")
+        expect(finder.path).to eq("/path/to/binary")
       end
 
     end
@@ -23,8 +27,11 @@ describe Sprockets::ImageCompressor::BinaryFinder do
       it "falls back to a vendored binary" do
         # Assume that the program has NOT found a local file
         allow(finder).to receive(:try_system_binary).and_return(nil)
+        # We cannot actually test local files as they are system-dependant (would not pass in Windows)
+        # using current implementation)
+        allow(finder).to receive(:try_vendored_binaries).and_return("#{gem_root}/bin/jpegoptim")
         # It should return the vendored binary path
-        expect(finder.to_s).to include("#{gem_root}/bin/binary")
+        expect(finder.path).to eq("#{gem_root}/bin/jpegoptim")
       end
 
     end
@@ -37,7 +44,7 @@ describe Sprockets::ImageCompressor::BinaryFinder do
         allow(finder).to receive(:try_system_binary).and_return(nil)
         allow(finder).to receive(:try_vendored_binaries).and_return(nil)
 
-        expect(finder.to_s).to raise_exception
+        expect(finder.path).to raise_error(Errno::ENOENT)
       end
 
     end

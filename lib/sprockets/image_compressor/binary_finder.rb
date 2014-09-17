@@ -7,16 +7,15 @@ module Sprockets
       # Return the executable location (or nil)
       def initialize(binary_name)
         @binary_name = binary_name
+      end
+
+      def path
         @binary_path ||= begin
-          try_system_binary or try_vendored_binaries or raise """
+          try_system_binary or try_vendored_binaries or raise Errno::ENOENT, """
               Can't find an installed version of #{ @binary_name }, and none of the vendored binaries seem to work.
               Please install #{ @binary_name }, or open an issue on the project page at https://github.com/botandrose/sprockets-image_compressor
             """
         end
-      end
-
-      def to_s
-        @binary_path
       end
 
 
@@ -65,6 +64,7 @@ module Sprockets
         # use the first vendored binary that doesn't shit the bed when we ask for its version
         vendored_binaries = Dir["#{GEM_ROOT}/bin/#{ @binary_name }.*"].sort
         vendored_binaries.find do |path|
+          raise path.inspect
           system("#{ path } -version 2> /dev/null > /dev/null")
         end
       end
