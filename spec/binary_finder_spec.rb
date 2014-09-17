@@ -7,10 +7,6 @@ describe Sprockets::ImageCompressor::BinaryFinder do
 
   describe "#binary_path" do
 
-    # before(:each) do
-    #   finder.send "@binary_path=nil"
-    # end
-
     context "when binary is installed" do
 
       it "prefers the system's binary" do
@@ -44,7 +40,7 @@ describe Sprockets::ImageCompressor::BinaryFinder do
         allow(finder).to receive(:try_system_binary).and_return(nil)
         allow(finder).to receive(:try_vendored_binaries).and_return(nil)
 
-        expect(finder.path).to raise_error(Errno::ENOENT)
+        expect{finder.path}.to raise_error(Errno::ENOENT)
       end
 
     end
