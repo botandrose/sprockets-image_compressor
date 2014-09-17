@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.1
+  # 2.1.0 throws exception until issue is resolved: https://github.com/travis-ci/travis-ci/issues/2220
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y jpegoptim pngcrush
