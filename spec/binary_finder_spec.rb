@@ -25,8 +25,8 @@ describe Sprockets::ImageCompressor::BinaryFinder do
     context "when local binary is missing and none of the vendored binaries work" do
       before { subject.stub try_system_binary: nil, try_vendored_binaries: nil }
 
-      it "raises an error" do
-        expect { subject.path }.to raise_error(Errno::ENOENT)
+      it "raises an exception" do
+        expect { subject.path }.to raise_exception
       end
     end
   end
