@@ -37,9 +37,10 @@ See [#15](https://github.com/botandrose/sprockets-image_compressor/issues/15) fo
 ## Credits
 
 * @nhogle for help with compiling and packaging the jpegoptim and pngcrush binaries
+* @JakeTheSnake3p0 for Windows support
 * @florentmorin for compatibility with sprockets-rails
 * @dkubb for compatibility with Rails 4
 
 ## License
 
-(MIT License) - Copyright (c) 2012 Micah Geisel
+(MIT License) - Copyright (c) 2014 Micah Geisel
