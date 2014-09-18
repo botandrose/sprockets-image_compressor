@@ -1,3 +1,7 @@
+0.3.0 (09/17/2014)
+-------------------------
+* Feature: Windows support! Thanks, @JakeTheSnake3p0!
+
 0.2.4 (05/18/2014)
 -------------------------
 * Bugfix: jpgs weren't being opened in binary mode. Thanks, @JakeTheSnake3p0!
